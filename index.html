@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<style>
+.top {
+    background-color: #838383;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-link {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.col-md-6 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* 그림과 글 사이 간격 조절 */
+}
+
+.box {
+    width: calc(33.33% - 20px);
+    text-align: center;
+}
+.profile {
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.info {
+    background: #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+.footer{
+    background-color: #838383;
+    color:#fff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="text"],
+button,
+select {
+    height: 40px;
+    line-height: 40px;
+}
+button{
+    border: 1px solid #ccc;
+    outline: none;
+}
+button#add {
+        background-color: #c9bcf9 ; /* Change this to your desired color */
+    }
+
+    button#add:hover {
+        background-color:#a68efd;
+    }
+button:hover {
+    background-color: #f0f0f0; 
+}
+.edit{
+    height:40px;
+    width:40px;
+}
+.delete{
+    height:40px;
+    width:40px;
+    cursor: pointer;
+}
+
+
+</style>
+<script>
+    function showAlert(){
+        if(confirm("삭제하시겠습니까?")){
+            alert("삭제되었습니다.");
+        }else{
+            alert("삭제가 취소되었습니다.");
+        }
+    }
+
+   
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Place</title>
+    <!-- 부트스트랩 CSS 포함 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="top">
+        <h1>A Record of Hot Place</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="메뉴 토글">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Intro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Information</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>The List of Hot Place</h2>
+            </div>
+            <div class="col-md-6 justify-content-end align-items-center">
+                <select name="rating" id="rating">
+                    <option value="0">Select Rating</option>
+                    <option value="1">*</option>
+                    <option value="2">**</option>
+                    <option value="3">***</option>
+                    <option value="4">****</option>
+                    <option value="5">*****</option>
+                </select>
+                <input type="text" name="search" placeholder="Search...">
+                <button name="Search">Search</button> 
+                <a href="add.html">
+                <button name="add">add</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>    <hr>
+    </div>
+ 
+    <div class="image-container">
+        <div class="box">
+            <img class="profile" src="image/macaron_pohang.jpeg"onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 양덕동마카롱 <br>
+                    주소: 경상북도 포항시 북구 장량동 천마로72번길 7 <br>
+                    연락처: 010-6514-2582 <br>
+                    운영시간: 오전 10:00 ~ 오후 8:00 <br>
+                    휴무일: 일요일, 월요일 <br>
+                    장소구분: 디저트 카페 <br>
+                    별점: 5 <br>
+                    <a href="edit.html">
+                        <img class="edit" src= "image/pen.jpeg">
+                        </a>
+                        <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="profile" src="image/gravy.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 그레이비 <br>
+                    주소: 경상북도 포항시 북구 환여동 282-10<br>
+                    연락처:  054-256-8897<br>
+                    운영시간: 오전 11:00 ~ 오후 9:00 <br>
+                    휴무일: 없음 <br>
+                    장소구분: 이탈리아 음식점 <br>
+                    별점: 5<br>
+                    <a href="edit.html">
+                        <img class="edit" src= "image/pen.jpeg">
+                        </a>
+                        <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="profile" src="image/bookshopsnail.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 달팽이책방<br>
+                    주소: 경상북도 포항시 남구 효자동길10번길 32<br>
+                    연락처: 070-7532-3316 <br>
+                    운영시간: 오후 1:00 ~ 오후 7:30 <br>
+                    휴무일: 월요일 <br>
+                    장소구분: 서점 <br>
+                    별점: 4.6<br>
+                    <a href="edit.html">
+                        <img class="edit" src= "image/pen.jpeg">
+                        </a>
+                        <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="profile" src="image/spacewalk.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 환호공원 스페이스워크 <br>
+                    주소: 경상북도 포항시 북구 두호동 산8<br>
+                    연락처: 010-6514-2582 <br>
+                    운영시간: 오전 10:00 ~ 오후 8:00 <br>
+                    휴무일: 없음 <br>
+                    장소구분: 관광 명소<br>
+                    별점: 4.5<br>
+                    <a href="edit.html">
+                        <img class="edit" src= "image/pen.jpeg">
+                        </a>
+                        <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="profile" src="image/HGU.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 한동대학교 <br>
+                    주소: 경상북도 포항시 북구 흥해읍 한동로 558<br>
+                    연락처: 054-260-1111 <br>
+                    운영시간: 오전 9:00 ~ 오후 6:00 <br>
+                    휴무일: 토요일, 일요일 <br>
+                    장소구분: 사립대학교<br>
+                    별점: 5<br>
+                    <a href="edit.html">
+                    <img class="edit" src= "image/pen.jpeg">
+                    </a>
+                    <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="profile" src="image/homigot.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <div class="info">
+                <p>장소명: 호미곶<br>
+                    주소: 경상북도 포항시 남구 호미곶면 구만리 464<br>
+                    연락처: 054-270-5855 <br>
+                    운영시간: 24시간 영업 <br>
+                    휴무일: 없음 <br>
+                    장소구분: 관광 명소 <br>
+                    별점: 5<br>
+                    <a href="edit.html">
+                        <img class="edit" src= "image/pen.jpeg">
+                        </a>
+                        <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
+                
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2023 Project2
+    </footer>
+
+    <!-- 부트스트랩 JS 및 Popper.js (네비게이션 바 토글러용) 포함 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min
