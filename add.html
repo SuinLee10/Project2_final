@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="my.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 * {
   box-sizing: border-box;
 }
 
 input[type=text], select, textarea {
-  width: 100%;
+  width: 50%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -15,27 +17,30 @@ input[type=text], select, textarea {
 }
 
 label {
-  padding: 12px 12px 12px 0;
+  padding: 10px 10px 10px 0;
   display: inline-block;
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
+  background-color: #e4f1fd;
+  color: black;
+  padding: 8px 10px;
+  border: 0.5px;
+  border-color: black;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #7189ff;
 }
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 20px;
 }
 
@@ -43,12 +48,14 @@ input[type=submit]:hover {
   float: left;
   width: 25%;
   margin-top: 6px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Clear floats after the columns */
@@ -56,6 +63,13 @@ input[type=submit]:hover {
   content: "";
   display: table;
   clear: both;
+}
+.header{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: #838383 ;
+    color: white;
+
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
@@ -66,79 +80,137 @@ input[type=submit]:hover {
   }
 }
 </style>
+<script>
+    function addAlert(){
+        alert("게시물이 추가됩니다.")
+        location.href = "index.html"
+    }
+</script>
 </head>
 <body>
+    <header class="top">
+        <h1>A Record of Hot Place</h1>
+    </header>
 
-<h2>Record of Hot Place</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="메뉴 토글">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Intro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Information</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Add the place</h2>
+            </div>
+    </div> 
+    <hr>
+</div>
 
 <div class="container">
 <form name="form1" action="form2_ok.php" onsubmit="return validateForm()" method="post">
-  <div class="row">
-    <div class="col-25">
-      <label for="fname"></label>
+    
+    <div class="row">
+        <div class="col-25">
+            <label for="picture">사진</label>
     </div>
     <div class="col-75">
-    <input type = "text" id="" name = "title" placeholder="Artwork title..">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="file"></label>
+        <input type="file" name="file" id="file">
+        <input type="submit" value="업로드">
+    </div>
+    </form>
+    </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="name">장소명</label>
+    </div>
+    <div class="col-75">
+    <input type = "text" id="" name = "place" placeholder="장소명을 입력해주세요...">
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="lname">Last Name</label>
+      <label for="address">주소</label>
     </div>
     <div class="col-75">
-        <input type = "text" name = "writer"><br>
-        <textarea name='conten' cols='20' rows='5'></textarea><br>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <input type = "text" name = "address" placeholder="주소를 입력해주세요..."><br>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="country">Country</label>
+      <label for="number">연락처</label>
     </div>
     <div class="col-75">
-      <select id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
+        <input type = "text" name = "phone" placeholder="000-000-000"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="time">운영시간</label>
+    </div>
+    <div class="col-75">
+        <input type = "text" name = "time" placeholder="오전 00:00 ~ 오후 00:00"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="day">휴무일</label>
+    </div>
+    <div class="col-75">
+      <select id="day" name="noRunDay">
+        <option value="monday">Monday</option>
+        <option value="tuesday">Tuesday</option>
+        <option value="wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
       </select>
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="subject">Subject</label>
+      <label for="type">장소구분</label>
     </div>
     <div class="col-75">
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <select id="type" name="placeType">
+        <option value="Cafe">디저트카페</option>
+        <option value="Italy restaurant">이탈리아 음식점</option>
+        <option value="bookstore">서점</option>
+        <option value="famous">관광명소</option>
+        <option value="University">사립대학교</option>
+      
+      </select>
     </div>
+  </div>
   </div>
   <br>
   <div class="row">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" onclick="addAlert()">
   </div>
   </form>
 </div>
 
 </body>
-</html>
 
-<script>
-    function validateForm(){
-        var subject = document.form1.subject;
-        if(subject.value == ""){
-            alert("제목을 입력하세요");
-            subject.focus();
-            return false;
-        }
-        var writer = document.form1.writer.value;
-        if(writer == ""){
-            alert("이름을 입력하세요");
-            subject.focus();
-            return false;
-        }
-        if(writer.length < 2){
-            alert("이름은 2글자이상 입력하세요");
-            writer.focus();
-            return false;
-        }
-    }
-</script>
+<footer class="footer">
+    &copy; 2023 Project2
+</footer>
+</html>

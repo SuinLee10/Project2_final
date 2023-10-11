@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="my.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 10px 10px 10px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #e4f1fd;
+  color: black;
+  padding: 8px 10px;
+  border: 0.5px;
+  border-color: black;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 10%;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+input[type=submit]:hover {
+  background-color: #7189ff;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.header{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: #838383 ;
+    color: white;
+
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+<script>
+    function addAlert(){
+        alert("게시물이 수정됩니다.")
+        location.href = "index.html"
+    }
+</script>
+</head>
+<body>
+    <header class="top">
+        <h1>A Record of Hot Place</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="메뉴 토글">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Intro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Information</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Edit the place</h2>
+            </div>
+    </div> 
+    <hr>
+</div>
+
+<div class="container">
+<form name="form1" action="form2_ok.php" onsubmit="return validateForm()" method="post">
+    
+    <div class="row">
+        <div class="col-25">
+            <label for="picture">사진</label>
+    </div>
+    <div class="col-75">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="file"></label>
+        <input type="file" name="file" id="file">
+        <input type="submit" value="업로드">
+    </div>
+    </form>
+    </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="name">장소명</label>
+    </div>
+    <div class="col-75">
+    <input type = "text" name = "placeName" id = "placeNameInput" value="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="address">주소</label>
+    </div>
+    <div class="col-75">
+        <input type = "text" name = "address" id = "addressInput" value="" ><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="number">연락처</label>
+    </div>
+    <div class="col-75">
+        <input type = "text" name = "phone" id = "phoneInput" value="" ><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="time">운영시간</label>
+    </div>
+    <div class="col-75">
+        <input type = "text" name = "time" id = "timeInput" value="" ><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="day">휴무일</label>
+    </div>
+    <div class="col-75">
+        <input type = "text" name = "noRunday" id = "noRundayInput" value="" ><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="type">장소구분</label>
+    </div>
+    <div class="col-75">
+      <select id="type" name="placeType">
+        <option value="Cafe">디저트카페</option>
+        <option value="Italy restaurant">이탈리아 음식점</option>
+        <option value="bookstore">서점</option>
+        <option value="famous">관광명소</option>
+        <option value="University">사립대학교</option>
+      </select>
+    </div>
+  </div>
+  </div>
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit" onclick="addAlert()">
+  </div>
+  </form>
+</div>
+
+</body>
+
+<footer class="footer">
+    &copy; 2023 Project2
+</footer>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const placeName = urlParams.get('placeName');
+    const placeNameInput = document.getElementById('placeNameInput');
+    placeNameInput.value = placeName;
+    const address = urlParams.get('address');
+    const addressInput = document.getElementById('addressInput');
+    addressInput.value=address;
+    const phone = urlParams.get('phone');
+    const phoneInput = document.getElementById('phoneInput');
+    phoneInput.value=phone;
+    const timeInput = document.getElementById('timeInput');
+    const time = urlParams.get('time'); 
+    timeInput.value=time;
+    const noRunday = urlParams.get('noRunday'); 
+    const noRundayInput = document.getElementById('noRundayInput');
+    noRundayInput.value=noRunday;
+    const placeType = urlParams.get('type'); 
+    const selectElment = document.getElementById('type');
+    for (let i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].value === placeType) {
+            selectElement.options[i].selected = true;
+            break;
+        }
+    }
+    const star = urlParams.get('star'); 
+    const starInput = document.getElementById('starInput');
+    starInput.value=star;
+    const image = urlParams.get('image');
+    const placeImage = document.getElementById('placeImage');
+    
+    placeImage.src = image;
+    placeImage.alt = placeName; 
+</script>
+</html>
+ 

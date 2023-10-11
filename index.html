@@ -85,7 +85,26 @@ button:hover {
     width:40px;
     cursor: pointer;
 }
+a {
+    color: black; /* 현재 텍스트의 색을 상속받음 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-family: 'Times New Roman', Times, serif;
+}
+a:link {
+    color: black; /* 방문하지 않은 링크의 색상 (기본 상태) */
+}
 
+a:visited {
+    color: black; /* 방문한 링크의 색상 */
+}
+
+a:hover {
+    color: black; /* 링크에 마우스를 올렸을 때의 색상 */
+}
+
+a:active {
+    color: black; /* 링크를 클릭했을 때의 색상 */
+}
 
 </style>
 <script>
@@ -113,7 +132,7 @@ button:hover {
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Home</a>
+        <a class="navbar-brand" href="index.html">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="메뉴 토글">
             <span class="navbar-toggler-icon"></span>
@@ -159,8 +178,10 @@ button:hover {
     </div>
  
     <div class="image-container">
+        <a href="view.html?placeName=양덕동 마카롱&address=경상북도 포항시 북구 장량동 천마로 72번길 7&phone=010-6514-2582&time=오전 10:00 ~ 오후 8:00&noRunday=일요일, 월요일
+        &image=image/macaron_pohang.jpeg&type=디저트 카페&star=5">
         <div class="box">
-            <img class="profile" src="image/macaron_pohang.jpeg"onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <img class="profile" src="image/macaron_pohang.jpeg">
             <div class="info">
                 <p>장소명: 양덕동마카롱 <br>
                     주소: 경상북도 포항시 북구 장량동 천마로72번길 7 <br>
@@ -169,15 +190,19 @@ button:hover {
                     휴무일: 일요일, 월요일 <br>
                     장소구분: 디저트 카페 <br>
                     별점: 5 <br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=양덕동 마카롱&address=경상북도 포항시 북구 장량동 천마로 72번길 7&phone=010-6514-2582&time=오전 10:00 ~ 오후 8:00&noRunday=일요일, 월요일
+                    &image=image/macaron_pohang.jpeg&type=디저트 카페&star=5">
                         <img class="edit" src= "image/pen.jpeg">
                         </a>
                         <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
                 </p>
             </div>
         </div>
+    </a>
         <div class="box">
-            <img class="profile" src="image/gravy.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <a href="view.html?placeName=그레이비&address=경상북도 포항시 북구 환여동 282-10&phone=054-256-8897&time=오전 11:00 ~ 오후 9:00&noRunday=없음
+        &image=image/gravy.jpeg&type= 이탈리아 음식점&star=5">
+            <img class="profile" src="image/gravy.jpeg">
             <div class="info">
                 <p>장소명: 그레이비 <br>
                     주소: 경상북도 포항시 북구 환여동 282-10<br>
@@ -186,15 +211,19 @@ button:hover {
                     휴무일: 없음 <br>
                     장소구분: 이탈리아 음식점 <br>
                     별점: 5<br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=그레이비&address=경상북도 포항시 북구 환여동 282-10&phone=054-256-8897&time=오전 11:00 ~ 오후 9:00&noRunday=없음
+        &image=image/gravy.jpeg&type= 이탈리아 음식점&star=5">
                         <img class="edit" src= "image/pen.jpeg">
                         </a>
                         <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
                 </p>
             </div>
         </div>
+    </a>
         <div class="box">
-            <img class="profile" src="image/bookshopsnail.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <a href="view.html?placeName=달팽이책방&address=경상북도 포항시 남구 효자동길10번길 32&phone=070-7532-3316&time=오후 1:00 ~ 오후 7:30&noRunday=월요일
+        &image=image/bookshopsnail.jpeg&type=서점&star=4.6">
+            <img class="profile" src="image/bookshopsnail.jpeg">
             <div class="info">
                 <p>장소명: 달팽이책방<br>
                     주소: 경상북도 포항시 남구 효자동길10번길 32<br>
@@ -203,15 +232,19 @@ button:hover {
                     휴무일: 월요일 <br>
                     장소구분: 서점 <br>
                     별점: 4.6<br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=달팽이책방&address=경상북도 포항시 남구 효자동길10번길 32&phone=070-7532-3316&time=오후 1:00 ~ 오후 7:30&noRunday=월요일
+                    &image=image/bookshopsnail.jpeg&type=서점&star=4.6">
                         <img class="edit" src= "image/pen.jpeg">
                         </a>
                         <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
                 </p>
             </div>
         </div>
+    </a>
         <div class="box">
-            <img class="profile" src="image/spacewalk.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <a href="view.html?placeName=환호공원 스페이스워크&address=경상북도 포항시 북구 두호동 산8&phone=010-6514-2582&time=오전 10:00 ~ 오후 8:00&noRunday=없음
+        &image=image/spacewalk.jpeg&type=관광 명소&star=4.5">
+            <img class="profile" src="image/spacewalk.jpeg">
             <div class="info">
                 <p>장소명: 환호공원 스페이스워크 <br>
                     주소: 경상북도 포항시 북구 두호동 산8<br>
@@ -220,15 +253,19 @@ button:hover {
                     휴무일: 없음 <br>
                     장소구분: 관광 명소<br>
                     별점: 4.5<br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=환호공원 스페이스워크&address=경상북도 포항시 북구 두호동 산8&phone=010-6514-2582&time=오전 10:00 ~ 오후 8:00&noRunday=없음
+        &image=image/spacewalk.jpeg&type=관광 명소&star=4.5">
                         <img class="edit" src= "image/pen.jpeg">
                         </a>
                         <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
                 </p>
             </div>
         </div>
+    </a>
         <div class="box">
-            <img class="profile" src="image/HGU.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <a href="view.html?placeName=한동대학교&address=경상북도 포항시 북구 흥해읍 한동로 558&phone=054-260-1111&time=오전 9:00 ~ 오후 6:00 &noRunday=토요일, 일요일
+            &image=image/HGU.jpeg&type=사립대학교&star=5">
+            <img class="profile" src="image/HGU.jpeg">
             <div class="info">
                 <p>장소명: 한동대학교 <br>
                     주소: 경상북도 포항시 북구 흥해읍 한동로 558<br>
@@ -237,7 +274,8 @@ button:hover {
                     휴무일: 토요일, 일요일 <br>
                     장소구분: 사립대학교<br>
                     별점: 5<br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=한동대학교&address=경상북도 포항시 북구 흥해읍 한동로 558&phone=054-260-1111&time=오전 9:00 ~ 오후 6:00 &noRunday=토요일, 일요일
+                    &image=image/HGU.jpeg&type=사립대학교&star=5">
                     <img class="edit" src= "image/pen.jpeg">
                     </a>
                     <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
@@ -245,7 +283,9 @@ button:hover {
             </div>
         </div>
         <div class="box">
-            <img class="profile" src="image/homigot.jpeg" onmouseover="showVisitDate(this)" onmouseout="hideDate(this)">
+            <a href="view.html?placeName=호미곶&address=경상북도 포항시 남구 호미곶면 구만리 464&phone=054-270-5855&time=24시간 영업&noRunday=없음
+            &image=image/homigot.jpeg&type=관광 명소&star=5">
+            <img class="profile" src="image/homigot.jpeg">
             <div class="info">
                 <p>장소명: 호미곶<br>
                     주소: 경상북도 포항시 남구 호미곶면 구만리 464<br>
@@ -254,7 +294,8 @@ button:hover {
                     휴무일: 없음 <br>
                     장소구분: 관광 명소 <br>
                     별점: 5<br>
-                    <a href="edit.html">
+                    <a href="edit.html?placeName=호미곶&address=경상북도 포항시 남구 호미곶면 구만리 464&phone=054-270-5855&time=24시간 영업&noRunday=없음
+                    &image=image/homigot.jpeg&type=관광 명소&star=5">
                         <img class="edit" src= "image/pen.jpeg">
                         </a>
                         <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
