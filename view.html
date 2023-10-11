@@ -28,8 +28,27 @@
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
 }
+.edit{
+    height:40px;
+    width:40px;
+}
+.delete{
+    height:40px;
+    width:40px;
+    cursor: pointer;
+}
     </style>
+    
     </head>
+    <script>
+        function showAlert(){
+            if(confirm("삭제하시겠습니까?")){
+                alert("삭제되었습니다.");
+            }else{
+                alert("삭제가 취소되었습니다.");
+            }
+        }
+        </script>
 <body>
     <header class="top">
         <h1>A Record of Hot Place</h1>
@@ -64,6 +83,7 @@
     </div> 
     <hr>
 </div>
+
 <div class="image-container">
 <img class="profile" id="placeImage">
 <div class="info">
@@ -74,10 +94,15 @@
                 <p id="noRunday"></p> 
                 <p id="type"></p>
                 <p id="star"></p>
+                <a href="add.html">
+                <img class="edit" src= "image/pen.jpeg">
+                </a>
+                <img class="delete" src= "image/garbage.jpeg" onclick="showAlert()">
                 </div>
                 </div>
-
+      
 </body>
+
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const placeName = urlParams.get('placeName');

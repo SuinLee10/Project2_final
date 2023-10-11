@@ -142,7 +142,7 @@ input[type=submit]:hover {
       <label for="name">장소명</label>
     </div>
     <div class="col-75">
-    <input type = "text" id="" name = "place" placeholder="장소명을 입력해주세요...">
+    <input type = "text" name = "placeName" id = "placeNameInput" placeholder="장소를 입력하세요.">
     </div>
   </div>
   <div class="row">
@@ -150,7 +150,7 @@ input[type=submit]:hover {
       <label for="address">주소</label>
     </div>
     <div class="col-75">
-        <input type = "text" name = "address" placeholder="주소를 입력해주세요..."><br>
+        <input type = "text" name = "address" id = "addressInput" placeholder="주소를 입력하세요." ><br>
     </div>
   </div>
   <div class="row">
@@ -158,7 +158,7 @@ input[type=submit]:hover {
       <label for="number">연락처</label>
     </div>
     <div class="col-75">
-        <input type = "text" name = "phone" placeholder="000-000-000"><br>
+        <input type = "text" name = "phone" id = "phoneInput" placeholder="전화번호를 입력하세요" ><br>
     </div>
   </div>
   <div class="row">
@@ -166,7 +166,7 @@ input[type=submit]:hover {
       <label for="time">운영시간</label>
     </div>
     <div class="col-75">
-        <input type = "text" name = "time" placeholder="오전 00:00 ~ 오후 00:00"><br>
+        <input type = "text" name = "time" id = "timeInput" placeholder="운영시간을 입력하세요" ><br>
     </div>
   </div>
   <div class="row">
@@ -174,15 +174,7 @@ input[type=submit]:hover {
       <label for="day">휴무일</label>
     </div>
     <div class="col-75">
-      <select id="day" name="noRunDay">
-        <option value="monday">Monday</option>
-        <option value="tuesday">Tuesday</option>
-        <option value="wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-        <option value="Saturday">Saturday</option>
-        <option value="Sunday">Sunday</option>
-      </select>
+        <input type = "text" name = "noRunday" id = "noRundayInput" placeholder="휴무일을 입력하세요" ><br>
     </div>
   </div>
   <div class="row">
@@ -196,7 +188,6 @@ input[type=submit]:hover {
         <option value="bookstore">서점</option>
         <option value="famous">관광명소</option>
         <option value="University">사립대학교</option>
-      
       </select>
     </div>
   </div>
@@ -213,4 +204,39 @@ input[type=submit]:hover {
 <footer class="footer">
     &copy; 2023 Project2
 </footer>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const placeName = urlParams.get('placeName');
+    const placeNameInput = document.getElementById('placeNameInput');
+    placeNameInput.value = placeName;
+    const address = urlParams.get('address');
+    const addressInput = document.getElementById('addressInput');
+    addressInput.value=address;
+    const phone = urlParams.get('phone');
+    const phoneInput = document.getElementById('phoneInput');
+    phoneInput.value=phone;
+    const timeInput = document.getElementById('timeInput');
+    const time = urlParams.get('time'); 
+    timeInput.value=time;
+    const noRunday = urlParams.get('noRunday'); 
+    const noRundayInput = document.getElementById('noRundayInput');
+    noRundayInput.value=noRunday;
+    const placeType = urlParams.get('type'); 
+    const selectElment = document.getElementById('type');
+    for (let i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].value === placeType) {
+            selectElement.options[i].selected = true;
+            break;
+        }
+    }
+    const star = urlParams.get('star'); 
+    const starInput = document.getElementById('starInput');
+    starInput.value=star;
+    const image = urlParams.get('image');
+    const placeImage = document.getElementById('placeImage');
+    
+    placeImage.src = image;
+    placeImage.alt = placeName; 
+</script>
 </html>
+ 
